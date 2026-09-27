@@ -1,12 +1,12 @@
-# Pet Pawpularity Prediction with JAX
+# Pet Popularity Prediction with JAX
 
-This project predicts pet photo Pawpularity scores using computer vision and regression.
+This project predicts pet photo popularity scores using computer vision and regression.
 
 The main focus of the project is refactoring a PyTorch-based image regression pipeline into JAX/Flax while explicitly managing model state, gradients, optimization, and validation logic.
 
 ## Project Overview
 
-The task is to predict a Pawpularity score from pet images.
+The task is to predict a popularity score from pet images.
 
 The original baseline used a PyTorch pipeline with a pretrained ResNet-18 backbone and a custom MLP regression head.
 
@@ -31,7 +31,7 @@ The JAX/Flax version:
 1. Extracts feature maps from the ResNet-18 backbone
 2. Applies global average pooling using `jnp.mean`
 3. Passes the pooled feature vector through a custom MLP head
-4. Outputs a Pawpularity score for regression
+4. Outputs a pet image popularity score for regression
 
 The MLP head is implemented using `flax.linen` with dense layers and ReLU activations.
 
@@ -39,13 +39,11 @@ The MLP head is implemented using `flax.linen` with dense layers and ReLU activa
 
 A major part of this project was converting the original object-oriented PyTorch workflow into JAX/Flax.
 
-Key differences explored include:
-
 ### PyTorch
 
 - Object-oriented model definition
 - Implicit state management
-- Simple `model.train()` / `model.eval()` workflow
+- Straightforward `model.train()` and `model.eval()` workflow
 - Easier debugging and rapid experimentation
 
 ### JAX / Flax
